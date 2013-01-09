@@ -15,6 +15,7 @@ Usage
 Create a new topology (please note, that all files should in the same directory).
 
        require './sfl_actop.rb'
+       require './sfl_diagnosis.rb'
        t = Topology.new()
 
 Add components to the topology: 
@@ -82,4 +83,38 @@ This results in an output like the following. Each activation results in one lin
     C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[1,1,1]}}}{C2[1,1,0]{L2[0,1,0]{C3[1,1,1]}}}}[fail]
     C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[1,1,1]}}}{C2[1,1,0]{L2[0,1,0]{C3[0,1,1]}}}}[fail] 
 
+An activated topology can be used for diagnosis experiments. First, the topology activation can be created and shown:
 
+    actop = Actop.new(t)
+    ActopOutput.screen(actop)
+    ActopOutput.graph(actop, :png, "ex_readme_actop.png")
+
+    C0 11111111111111111111   # activity of the components
+    C1 11111111111111111111
+    C2 11111111111111111111
+    C3 01111110110010111111
+    C4 10100010001011101111
+    L0 11111111111111111111   # activity of the links
+    L1 01111110010000111111
+    L2 01011000100010000111
+    L3 10100010001011101111
+    E  11111111111111111111   # error vector
+
+Finally, a diagnosis can be calculated and shown:
+
+	diagnosis = Diagnosis.new(actop)
+	DiagnosisOutput.screen(diagnosis, {:sort => :ochiai}, :ochiai, :jaccard, :tarantula)
+
+   	   | :ochiai      | :jaccard     | :tarantula   | 
+ 	C0 | 1.0          | 1.0          | 0.0          | 
+	C1 | 1.0          | 1.0          | 0.0          | 
+	C2 | 1.0          | 1.0          | 0.0          | 
+	L0 | 1.0          | 1.0          | 0.0          | 
+	C3 | 0.975        | 0.95         | 0.0          | 
+	L1 | 0.806        | 0.65         | 0.0          | 
+	L2 | 0.707        | 0.5          | 0.0          | 
+	C4 | 0.387        | 0.15         | 0.0          | 
+	L3 | 0.387        | 0.15         | 0.0          | 
+
+    
+    
