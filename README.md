@@ -41,7 +41,7 @@ Generate a picture of the topology:
 
 	 TopologyOutput.graph(t, :png, "ex_readme.png")
 
-This uses the graphviz library in order to generate a picture of the topology. The filetypes (e.g. :png) correspond to the [file types provided by graphviz](http://www.graphviz.org/content/output-formats). This ![figure](./sfl_simulator/examples/ex_readme.png) displays the topology described above.
+This uses the graphviz library in order to generate a picture of the topology. The filetypes (e.g. :png) correspond to the [file types provided by graphviz](http://www.graphviz.org/content/output-formats). This ![figure](/sfl-simulator/blob/master/examples/ex_readme.png) displays the topology described above.
 
 
 
