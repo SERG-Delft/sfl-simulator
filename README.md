@@ -29,8 +29,8 @@ A component must have a name, a health value, and a failure probability. The nam
 
 Link the components to form a topology:
 
-     t.link("L0", "C0", "C1", 1.0) # C0 is the starting point for the system it links to C1 with 100% invocation probability
-     t.edge("L0", "C2")            # L0 also links to C2 (add another edge) with the same probability
+     t.link("L0", "C0", "C1", 1.0) # link C0 -> C1 with 100% invocation probability
+     t.edge("L0", "C2")            # link C0 -> C2 (in the same link) 
      t.link("L1", "C1", "C3", 0.8) # link C1 -> C1 with 80% invocation probability
      t.link("L2", "C2", "C3", 0.5) # link C2 -> C3 with 50% invocation probability
      t.link("L3", "C2", "C4", 0.3) # link C2 -> C4 with 30% invocation probability    
@@ -41,7 +41,7 @@ Generate a picture of the topology:
 
 	 TopologyOutput.graph(t, :png, "ex_readme.png")
 
-This uses the graphviz library in order to generate a picture of the topology. The filetypes (e.g. :png) correspond to the [file types provided by graphviz](http://www.graphviz.org/content/output-formats). This ![figure](/sfl-simulator/blob/master/examples/ex_readme.png) displays the topology described above.
+This uses the graphviz library in order to generate a picture of the topology. The filetypes (e.g. :png) correspond to the [file types provided by graphviz](http://www.graphviz.org/content/output-formats). This ![figure](/sfl-simulator/examples/ex_readme.png) displays the topology described above.
 
 
 
