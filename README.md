@@ -41,7 +41,17 @@ Generate a picture of the topology:
 
 	 TopologyOutput.graph(t, :png, "ex_readme.png")
 
-This uses the graphviz library in order to generate a picture of the topology. The filetypes (e.g. :png) correspond to the [file types provided by graphviz](http://www.graphviz.org/content/output-formats). This ![figure](/sfl-simulator/examples/ex_readme.png) displays the topology described above.
+This uses the graphviz library in order to generate a picture of the topology. The filetypes (e.g. :png) correspond to the [file types provided by graphviz](http://www.graphviz.org/content/output-formats). This ![figure](sfl-simulator/examples/ex_readme.png) displays the topology described above.
 
+The execution of the component topology can now be simulated, either with a fixed number of executions:
 
+    	t.activate_often(["C0"], 20) # exercise Topology t 20 times, start in C0. 
+
+Several components may be activated at the same time:
+
+	t.activate_often(["C0", "C4"]) {}
+
+Components can also be activated until a component fails. This is useful when very low fault intermittency must be simulated:
+
+	t.activate_until_error(["C0"]) {}
 
