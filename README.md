@@ -14,8 +14,9 @@ Usage
 
 Create a new topology 
 
-`require './sfl_actop.rb'`
-`t = Topology.new`
+`<require './sfl_actop.rb'>`
+
+`<t = Topology.new>`
 
 Add components to the topology. 
 
