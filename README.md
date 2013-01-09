@@ -107,7 +107,7 @@ Finally, a diagnosis can be calculated ...
 	diagnosis = Diagnosis.new(actop)
 	DiagnosisOutput.screen(diagnosis, {:sort => :ochiai}, :ochiai, :jaccard)
 
-... and shown.
+... and shown. The similarity coefficients, e.g. :ochiai, :jaccard, etc., can be found in the file [sfl_similarity.rb](sfl-simulator/sfl_ruby/sfl_similarity.rb)
 
    	   | :ochiai      | :jaccard     | 
  	C0 | 1.0          | 1.0          | 
