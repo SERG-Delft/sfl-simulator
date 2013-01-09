@@ -45,13 +45,41 @@ This uses the graphviz library in order to generate a picture of the topology. T
 
 The execution of the component topology can now be simulated, either with a fixed number of executions:
 
-    	t.activate_often(["C0"], 20) # exercise Topology t 20 times, start in C0. 
+    t.activate_often(["C0"], 20) # exercise Topology t 20 times, start in C0
 
 Several components may be activated at the same time:
 
-	t.activate_often(["C0", "C4"]) {}
+    t.activate_often(["C0", "C4"]) {}
 
 Components can also be activated until a component fails. This is useful when very low fault intermittency must be simulated:
 
-	t.activate_until_error(["C0"]) {}
+    t.activate_until_error(["C0"]) {}
+
+Activation leads to traces, which can be shown:
+
+    TopologyOutput.traces(t)
+
+This results in an output like the following. Each activation results in one line with the component executed, the link invoked, plus [fault, error, failure] information. The curly brackets {} indicate invocation nesting.
+
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[0,0,0]}}}{C2[1,1,0]{L2[0,1,0]{C3[1,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[1,1,1]}}}{C2[1,1,0]{L3[0,1,0]{C4[0,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[0,0,0]}}}{C2[1,1,0]{L2[0,1,0]{C3[0,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]}{C2[1,1,0]{L2[0,1,0]{C3[1,1,1]}}{L3[0,1,0]{C4[0,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]}{C2[1,1,0]{L2[0,1,0]{C3[0,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[1,1,1]}}}{C2[1,1,0]}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[0,0,0]}}}{C2[1,1,0]}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]}{C2[1,1,0]{L2[0,1,0]{C3[0,1,1]}}{L3[0,1,0]{C4[0,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[0,0,0]}}}{C2[1,1,0]{L2[0,1,0]{C3[1,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[0,0,0]}}}{C2[1,1,0]{L3[0,1,0]{C4[0,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[1,1,1]}}}{C2[1,1,0]{L2[0,1,0]{C3[1,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[0,0,0]}}}{C2[1,1,0]{L2[0,1,0]{C3[0,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]}{C2[1,1,0]{L3[0,1,0]{C4[0,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]}{C2[1,1,0]{L2[0,1,0]{C3[1,1,1]}}{L3[0,1,0]{C4[0,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]}{C2[1,1,0]}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]}{C2[1,1,0]{L2[0,1,0]{C3[0,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[0,0,0]}}}{C2[1,1,0]{L2[0,1,0]{C3[0,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[0,0,0]}}}{C2[1,1,0]}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[1,1,1]}}}{C2[1,1,0]{L2[0,1,0]{C3[1,1,1]}}}}[fail]
+    C0[0,0,0]{L0[0,0,0]{C1[0,0,0]{L1[0,0,0]{C3[1,1,1]}}}{C2[1,1,0]{L2[0,1,0]{C3[0,1,1]}}}}[fail] 
+
 
