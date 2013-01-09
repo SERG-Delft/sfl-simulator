@@ -103,18 +103,18 @@ An activated topology can be used for diagnosis experiments. First, the topology
 Finally, a diagnosis can be calculated and shown:
 
 	diagnosis = Diagnosis.new(actop)
-	DiagnosisOutput.screen(diagnosis, {:sort => :ochiai}, :ochiai, :jaccard, :tarantula)
+	DiagnosisOutput.screen(diagnosis, {:sort => :ochiai}, :ochiai, :jaccard)
 
-   	   | :ochiai      | :jaccard     | :tarantula   | 
- 	C0 | 1.0          | 1.0          | 0.0          | 
-	C1 | 1.0          | 1.0          | 0.0          | 
-	C2 | 1.0          | 1.0          | 0.0          | 
-	L0 | 1.0          | 1.0          | 0.0          | 
-	C3 | 0.975        | 0.95         | 0.0          | 
-	L1 | 0.806        | 0.65         | 0.0          | 
-	L2 | 0.707        | 0.5          | 0.0          | 
-	C4 | 0.387        | 0.15         | 0.0          | 
-	L3 | 0.387        | 0.15         | 0.0          | 
+   	   | :ochiai      | :jaccard     | 
+ 	C0 | 1.0          | 1.0          | 
+	C1 | 1.0          | 1.0          | 
+	C2 | 1.0          | 1.0          |  
+	L0 | 1.0          | 1.0          |  
+	C3 | 0.975        | 0.95         |  
+	L1 | 0.806        | 0.65         | 
+	L2 | 0.707        | 0.5          | 
+	C4 | 0.387        | 0.15         | 
+	L3 | 0.387        | 0.15         | 
 
     
     
