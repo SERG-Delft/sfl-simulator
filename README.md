@@ -14,9 +14,9 @@ Usage
 
 Create a new topology (please note, that all files should in the same directory).
 
-       require './sfl_actop.rb'
-       require './sfl_diagnosis.rb'
-       t = Topology.new()
+    require './sfl_actop.rb'
+    require './sfl_diagnosis.rb'
+    t = Topology.new()
 
 Add components to the topology: 
 
